@@ -27,20 +27,25 @@
             <td><%= t.userName%></td>
             <td><%= t.tweet%></td>
             <td>
-              <div>
-                <a href="details/<%= t.id %>">
-                  <button class="btn btn-primary" type="button">
-                    View Details
-                  </button>
-                </a>
-
-                <a href="/tweet/<%= t.id%>/edit">
-                  <button class="btn btn-success" type="button">Edit</button>
-                </a>
-                <form action="/tweet/<%= t.id%>?_method=DELETE" method="post">
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-              </div>
+              <section>
+                <div class="container">
+                  <a href="details/<%= t.id %>" class="row">
+                    <button class="btn btn-primary" type="button">
+                      View Details
+                    </button>
+                  </a>
+                  <a href="/tweet/<%= t.id%>/edit" class="row">
+                    <button class="btn btn-success" type="button">Edit</button>
+                  </a>
+                  <form
+                    action="/tweet/<%= t.id%>?_method=DELETE"
+                    method="post"
+                    class="row"
+                  >
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                  </form>
+                </div>
+              </section>
             </td>
           </tr>
           <% } %>
