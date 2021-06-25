@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/app.min.css" rel="stylesheet" />
+    <link href="/app.css" rel="stylesheet" />
+
+    <title>Edit your tweet</title>
+  </head>
+  <body>
+    <div class="container-md">
+      <h1>Edit Your Tweet !!</h1>
+      <section>
+        <form
+          action="/details/<%= thisTweet.id  %>?_method=PATCH"
+          method="POST"
+        >
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >User Name</label
+            >
+            <input
+              name="userName"
+              class="form-control"
+              placeholder="Enter User Name"
+              value=" <%= thisTweet.userName  %>"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Enter Tweets</label
+            >
+            <textarea
+              name="tweet"
+              class="form-control"
+              rows="3"
+              placeholder="0 of 180 letters"
+            >
+            <%= thisTweet.tweet  %> 
+            
+            </textarea>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-primary" type="submit">
+                Edit Tweet !
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+    <script src="/app.min.js"></script>
+  </body>
+</html>

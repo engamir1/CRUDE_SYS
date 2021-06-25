@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/app.min.css" rel="stylesheet" />
+    <link href="/app.css" rel="stylesheet" />
+    <title>All tweets</title>
+  </head>
+  <body>
+    <section class="container-md">
+      <table class="table caption-top">
+        <h2 class="d-grid gap-2 col-6 mx-auto">Admin Panel</h2>
+        <thead>
+          <tr>
+            <th scope="col">NO</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Tweet</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let t of tweets) { %>
+          <tr>
+            <th scope="row">2</th>
+            <td><%= t.userName%></td>
+            <td><%= t.tweet%></td>
+            <td>
+              <div>
+                <a href="details/<%= t.id %>">
+                  <button class="btn btn-primary" type="button">
+                    View Details
+                  </button>
+                </a>
+
+                <a href="/tweet/<%= t.id%>/edit">
+                  <button class="btn btn-success" type="button">Edit</button>
+                </a>
+                <form action="/tweet/<%= t.id%>?_method=DELETE" method="post">
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </section>
+    <script src="/app.min.js"></script>
+  </body>
+</html>
