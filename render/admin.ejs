@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/app.min.css" rel="stylesheet" />
-    <link href="/app.css" rel="stylesheet" />
-    <title>All tweets</title>
-  </head>
+<%- include('components/head')  %> 
+<title>All tweets</title>
+</head>
+</html>
   <body>
     <section class="container-md">
       <table class="table caption-top">
@@ -27,31 +21,23 @@
             <td><%= t.userName%></td>
             <td><%= t.tweet%></td>
             <td>
-              <section>
-                <div class="container">
-                  <a href="details/<%= t.id %>" class="row">
-                    <button class="btn btn-primary" type="button">
-                      View Details
-                    </button>
-                  </a>
-                  <a href="/tweet/<%= t.id%>/edit" class="row">
-                    <button class="btn btn-success" type="button">Edit</button>
-                  </a>
-                  <form
-                    action="/tweet/<%= t.id%>?_method=DELETE"
-                    method="post"
-                    class="row"
-                  >
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                  </form>
-                </div>
-              </section>
+              <div  class="row row-cols-3 row-cols-lg-5 g-2 g-lg-3" >
+                <a href="details/<%= t.id %>">
+                  <button class="btn btn-primary" type="button">
+                    Details
+                  </button>
+                </a>
+                <a href="/tweet/<%= t.id%>/edit">
+                  <button class="btn btn-success" type="button">Edit</button>
+                </a>
+                <form action="/tweet/<%= t.id%>?_method=DELETE" method="post">
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+              </div>
             </td>
           </tr>
           <% } %>
         </tbody>
       </table>
     </section>
-    <script src="/app.min.js"></script>
-  </body>
-</html>
+<%- include('components/footer') %> 
